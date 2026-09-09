@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPUS-Mini | Tambah Buku</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SIMPUS-Mini</h1>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">&#9776;</label>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="list.html">Daftar Buku</a></li>
+                <li><a href="tambah.html">Tambah Buku</a></li>
+                <li><a href="../anggota/list.html">Daftar Anggota</a></li>
+                <li><a href="../anggota/tambah.html">Tambah Anggota</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tambah Data Buku</h2>
+            <form action="#" method="post">
+                <p>
+                    <label for="judul">Judul Buku:</label>
+                    <input type="text" id="judul" name="judul" required>
+                </p>
+                <p>
+                    <label for="penulis">Penulis:</label>
+                    <input type="text" id="penulis" name="penulis" required>
+                </p>
+                <p>
+                    <label for="tahun">Tahun Terbit:</label>
+                    <input type="number" id="tahun" name="tahun" min="1900" max="2099" required>
+                </p>
+                <p>
+                    <label for="status">Status Buku:</label>
+                    <select id="status" name="status">
+                        <option value="Tersedia">Tersedia</option>
+                        <option value="Dipinjam">Dipinjam</option>
+                    </select>
+                </p>
+                <p>
+                    <button type="submit">Simpan Buku</button>
+                    <button type="reset">Batal</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 3</p>
+    </footer>
+</body>
+</html>
