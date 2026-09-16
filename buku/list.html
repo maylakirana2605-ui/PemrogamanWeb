@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMPUS-Mini | Daftar Buku</title>
+    <title>Daftar Buku - SIMPUS-Mini</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -23,88 +23,36 @@
 
     <main>
         <section>
-            <h2>Daftar Buku</h2>
+            <h2>Daftar Koleksi Buku</h2>
             <div class="search-box">
-                <input type="text" id="search-input" placeholder="Cari judul atau penulis buku...">
+                <input type="text" placeholder="Cari judul atau penulis buku...">
             </div>
+            <p id="loading-indicator" style="display:none; color:#1d5b8a; font-weight:600; margin-bottom:1rem;">Memuat data buku...</p>
             <div class="table-responsive">
-                <table>
+                <table id="tabel-buku">
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Kode</th>
                             <th>Judul Buku</th>
                             <th>Penulis</th>
-                            <th>Tahun Terbit</th>
+                            <th>Tahun</th>
+                            <th>Stok</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Pemrograman Java Dasar</td>
-                            <td>Budi Raharjo</td>
-                            <td>2021</td>
-                            <td>Tersedia</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Implementasi MariaDB & SQL</td>
-                            <td>Joko Santoso</td>
-                            <td>2023</td>
-                            <td>Dipinjam</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Panduan Lengkap Cyber Security</td>
-                            <td>Andi Pratama</td>
-                            <td>2022</td>
-                            <td>Tersedia</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Rekayasa Perangkat Lunak</td>
-                            <td>Siti Nurhaliza</td>
-                            <td>2020</td>
-                            <td>Dipinjam</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Aljabar Linear dan Matriks</td>
-                            <td>Rudi Hermawan</td>
-                            <td>2021</td>
-                            <td>Tersedia</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 5</p>
+        <p>&copy; 2026 SIMPUS-Mini - Sistem Informasi Perpustakaan</p>
     </footer>
 
     <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/buku.js"></script>
 </body>
 </html>

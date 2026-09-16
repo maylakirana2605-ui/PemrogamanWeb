@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMPUS-Mini | Daftar Anggota</title>
+    <title>Daftar Anggota - SIMPUS-Mini</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -17,6 +17,7 @@
                 <li><a href="../buku/tambah.html">Tambah Buku</a></li>
                 <li><a href="list.html">Daftar Anggota</a></li>
                 <li><a href="tambah.html">Tambah Anggota</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -24,86 +25,32 @@
         <section>
             <h2>Daftar Anggota Perpustakaan</h2>
             <div class="search-box">
-                <input type="text" id="search-input" placeholder="Cari nama atau NIM anggota...">
+                <input type="text" placeholder="Cari nama atau NIM anggota...">
             </div>
+            <p id="loading-indicator" style="display:none; color:#1d5b8a; font-weight:600; margin-bottom:1rem;">Memuat data anggota...</p>
             <div class="table-responsive">
-                <table>
+                <table id="tabel-anggota">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>NIM / ID Anggota</th>
+                            <th>NIM</th>
                             <th>Nama Lengkap</th>
                             <th>Program Studi</th>
-                            <th>Status Keanggotaan</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2341720001</td>
-                            <td>Ahmad Fauzi</td>
-                            <td>Teknik Informatika</td>
-                            <td>Aktif</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2341720002</td>
-                            <td>Dewi Anggraini</td>
-                            <td>Sistem Informasi Bisnis</td>
-                            <td>Aktif</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>2341720003</td>
-                            <td>Rizky Pratama</td>
-                            <td>Teknik Informatika</td>
-                            <td>Nonaktif</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>2341720004</td>
-                            <td>Siti Aminah</td>
-                            <td>Teknik Komputer</td>
-                            <td>Aktif</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>2341720005</td>
-                            <td>Bambang Pamungkas</td>
-                            <td>Sistem Informasi Bisnis</td>
-                            <td>Aktif</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 5</p>
+        <p>&copy; 2026 SIMPUS-Mini - Sistem Informasi Perpustakaan</p>
     </footer>
 
     <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/anggota.js"></script>
 </body>
 </html>

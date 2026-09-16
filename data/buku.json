@@ -1,0 +1,12 @@
+[
+  { "id": 1, "kode": "BK001", "judul": "Pemrograman Web dengan PHP dan MySQL", "penulis": "Budi Raharjo", "tahun": 2022, "stok": 12, "status": "Tersedia" },
+  { "id": 2, "kode": "BK002", "judul": "Belajar JavaScript Modern", "penulis": "Eko Kurniawan", "tahun": 2023, "stok": 8, "status": "Tersedia" },
+  { "id": 3, "kode": "BK003", "judul": "Dasar-Dasar Rekayasa Perangkat Lunak", "penulis": "Rosa A.S.", "tahun": 2021, "stok": 5, "status": "Tersedia" },
+  { "id": 4, "kode": "BK004", "judul": "Struktur Data dan Algoritma", "penulis": "Rinaldi Munir", "tahun": 2020, "stok": 0, "status": "Habis" },
+  { "id": 5, "kode": "BK005", "judul": "Jaringan Komputer Berbasis Komputer", "penulis": "Iwan Sofana", "tahun": 2019, "stok": 7, "status": "Tersedia" },
+  { "id": 6, "kode": "BK006", "judul": "Keamanan Jaringan dan Kriptografi", "penulis": "Onno W. Purbo", "tahun": 2022, "stok": 4, "status": "Tersedia" },
+  { "id": 7, "kode": "BK007", "judul": "Sistem Informasi Manajemen", "penulis": "Jogiyanto", "tahun": 2021, "stok": 9, "status": "Tersedia" },
+  { "id": 8, "kode": "BK008", "judul": "Desain UI/UX Menggunakan Figma", "penulis": "Surya Pratama", "tahun": 2024, "stok": 15, "status": "Tersedia" },
+  { "id": 9, "kode": "BK009", "judul": "Machine Learning untuk Pemula", "penulis": "Andi Wijaya", "tahun": 2023, "stok": 0, "status": "Habis" },
+  { "id": 10, "kode": "BK010", "judul": "Kecerdasan Buatan Terapan", "penulis": "Kusumadewi", "tahun": 2022, "stok": 3, "status": "Tersedia" }
+]

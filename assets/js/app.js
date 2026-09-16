@@ -1,110 +1,82 @@
-document.addEventListener("DOMContentLoaded", function () {
-    initNavToggle();
-    initValidasiForm();
-    initTableFilter();
-    initBtnHapus();
-});
-
-function initNavToggle() {
-    const btnToggle = document.getElementById("nav-toggle-btn");
-    const navMenu = document.querySelector("header nav");
-
-    if (btnToggle && navMenu) {
-        btnToggle.addEventListener("click", function () {
-            navMenu.classList.toggle("nav-open");
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Hamburger menu toggle
+    const navBtn = document.getElementById("nav-toggle-btn");
+    const nav = document.querySelector("header nav");
+    if (navBtn && nav) {
+        navBtn.addEventListener("click", () => {
+            nav.classList.toggle("nav-open");
         });
     }
-}
 
-function initValidasiForm() {
-    const form = document.querySelector("form");
-    if (!form) return;
-
-    form.setAttribute("novalidate", "true");
-
-    form.addEventListener("submit", function (e) {
-        let isValid = true;
-
-        const oldErrors = form.querySelectorAll(".error-msg");
-        oldErrors.forEach(function (err) {
-            err.remove();
-        });
-
-        const requiredInputs = form.querySelectorAll("input[required], select[required]");
-        requiredInputs.forEach(function (input) {
-            if (!input.value.trim()) {
-                tampilkanError(input, "Field ini wajib diisi!");
-                isValid = false;
-            }
-        });
-
-        const tahunInput = form.querySelector("input[name='tahun']");
-        if (tahunInput && tahunInput.value.trim()) {
-            const tahun = parseInt(tahunInput.value, 10);
-            if (tahun < 1900 || tahun > 2099) {
-                tampilkanError(tahunInput, "Tahun harus berada dalam rentang 1900 - 2099!");
-                isValid = false;
-            }
-        }
-
-        const stokInput = form.querySelector("input[name='stok']");
-        if (stokInput && stokInput.value.trim()) {
-            const stok = parseInt(stokInput.value, 10);
-            if (stok < 0) {
-                tampilkanError(stokInput, "Stok tidak boleh bernilai negatif!");
-                isValid = false;
-            }
-        }
-
-        if (!isValid) {
-            e.preventDefault();
-        }
-    });
-}
-
-function tampilkanError(element, pesan) {
-    const errorEl = document.createElement("small");
-    errorEl.className = "error-msg";
-    errorEl.style.color = "red";
-    errorEl.style.display = "block";
-    errorEl.style.marginTop = "4px";
-    errorEl.textContent = pesan;
-    element.insertAdjacentElement("afterend", errorEl);
-}
-
-function initTableFilter() {
-    const searchInput = document.getElementById("search-input");
-    const tbody = document.querySelector("table tbody");
-
-    if (searchInput && tbody) {
+    // 2. Filter pencarian tabel real-time
+    const searchInput = document.querySelector(".search-box input");
+    if (searchInput) {
         searchInput.addEventListener("keyup", function () {
-            const keyword = searchInput.value.toLowerCase();
-            const rows = tbody.querySelectorAll("tr");
-
-            rows.forEach(function (row) {
+            const keyword = this.value.toLowerCase();
+            const rows = document.querySelectorAll("tbody tr");
+            rows.forEach(row => {
                 const text = row.textContent.toLowerCase();
-                if (text.includes(keyword)) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
+                row.style.display = text.includes(keyword) ? "" : "none";
             });
         });
     }
-}
 
-function initBtnHapus() {
-    const hapusButtons = document.querySelectorAll(".btn-hapus");
+    // 3. Validasi Form Tambah (Buku & Anggota)
+    const form = document.querySelector("form");
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            let isValid = true;
+            document.querySelectorAll(".error-msg").forEach(el => el.remove());
 
-    hapusButtons.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            const yakin = confirm("Apakah Anda yakin ingin menghapus data ini?");
-            if (yakin) {
-                const row = btn.closest("tr");
-                if (row) {
-                    row.remove();
+            const requiredInputs = form.querySelectorAll("input[required], select[required]");
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    showError(input, "Field ini wajib diisi!");
+                    isValid = false;
+                }
+            });
+
+            const inputTahun = form.querySelector("input[name='tahun']");
+            if (inputTahun && inputTahun.value.trim()) {
+                const tahun = parseInt(inputTahun.value, 10);
+                if (tahun < 1900 || tahun > 2099) {
+                    showError(inputTahun, "Tahun terbit harus antara 1900 - 2099!");
+                    isValid = false;
                 }
             }
+
+            const inputStok = form.querySelector("input[name='stok']");
+            if (inputStok && inputStok.value.trim()) {
+                const stok = parseInt(inputStok.value, 10);
+                if (stok < 0) {
+                    showError(inputStok, "Jumlah stok tidak boleh negatif!");
+                    isValid = false;
+                }
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
         });
-    });
-}
+    }
+
+    function showError(element, message) {
+        const error = document.createElement("p");
+        error.className = "error-msg";
+        error.style.color = "red";
+        error.style.fontSize = "0.85rem";
+        error.style.marginTop = "0.25rem";
+        error.textContent = message;
+        element.insertAdjacentElement("afterend", error);
+    }
+});
+
+// 4. Event delegation untuk tombol hapus dinamis (Jobsheet 6)
+document.addEventListener("click", (e) => {
+    if (e.target && e.target.classList.contains("btn-hapus")) {
+        const row = e.target.closest("tr");
+        if (confirm("Yakin ingin menghapus baris data ini?")) {
+            row.remove();
+        }
+    }
+});
