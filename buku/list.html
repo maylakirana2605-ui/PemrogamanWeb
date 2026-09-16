@@ -9,8 +9,7 @@
 <body>
     <header>
         <h1>SIMPUS-Mini</h1>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-toggle-label">&#9776;</label>
+        <button type="button" id="nav-toggle-btn" aria-label="Menu">&#9776;</button>
         <nav>
             <ul>
                 <li><a href="../index.html">Beranda</a></li>
@@ -25,6 +24,9 @@
     <main>
         <section>
             <h2>Daftar Buku</h2>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Cari judul atau penulis buku...">
+            </div>
             <div class="table-responsive">
                 <table>
                     <thead>
@@ -46,7 +48,7 @@
                             <td>Tersedia</td>
                             <td>
                                 <button type="button">Edit</button>
-                                <button type="button">Hapus</button>
+                                <button type="button" class="btn-hapus">Hapus</button>
                             </td>
                         </tr>
                         <tr>
@@ -57,7 +59,7 @@
                             <td>Dipinjam</td>
                             <td>
                                 <button type="button">Edit</button>
-                                <button type="button">Hapus</button>
+                                <button type="button" class="btn-hapus">Hapus</button>
                             </td>
                         </tr>
                         <tr>
@@ -68,7 +70,7 @@
                             <td>Tersedia</td>
                             <td>
                                 <button type="button">Edit</button>
-                                <button type="button">Hapus</button>
+                                <button type="button" class="btn-hapus">Hapus</button>
                             </td>
                         </tr>
                         <tr>
@@ -79,7 +81,7 @@
                             <td>Dipinjam</td>
                             <td>
                                 <button type="button">Edit</button>
-                                <button type="button">Hapus</button>
+                                <button type="button" class="btn-hapus">Hapus</button>
                             </td>
                         </tr>
                         <tr>
@@ -90,7 +92,7 @@
                             <td>Tersedia</td>
                             <td>
                                 <button type="button">Edit</button>
-                                <button type="button">Hapus</button>
+                                <button type="button" class="btn-hapus">Hapus</button>
                             </td>
                         </tr>
                     </tbody>
@@ -100,7 +102,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 3</p>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 5</p>
     </footer>
+
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>

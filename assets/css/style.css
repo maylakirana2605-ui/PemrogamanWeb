@@ -23,7 +23,7 @@ a:hover {
 header {
     background-color: #1d5b8a;
     color: #fff;
-    padding: 1rem 1.5rem;
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,15 +35,12 @@ header h1 {
     font-size: 1.4rem;
 }
 
-#nav-toggle {
+#nav-toggle-btn {
     display: none;
-}
-
-.nav-toggle-label {
-    display: none;
-    font-size: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 26px;
     cursor: pointer;
-    user-select: none;
     color: #fff;
 }
 
@@ -63,21 +60,26 @@ header nav a:hover {
 }
 
 main {
-    max-width: 1000px;
-    margin: 2rem auto;
+    max-width: 900px;
+    margin: 2.5rem auto;
     padding: 0 1.5rem;
 }
 
 section {
     background-color: #fff;
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 2rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+section:has(form) {
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
 }
 
 section h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     color: #1d5b8a;
 }
 
@@ -110,6 +112,19 @@ main section:nth-of-type(2) article p {
     color: #1d5b8a;
 }
 
+.search-box {
+    margin-bottom: 15px;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 320px;
+    padding: 8px 12px;
+    border: 1px solid #cdd4da;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
 .table-responsive {
     width: 100%;
     overflow-x: auto;
@@ -124,7 +139,7 @@ table {
 
 th, td {
     text-align: left;
-    padding: 0.65rem 0.75rem;
+    padding: 0.75rem 1rem;
     border-bottom: 1px solid #e2e6ea;
 }
 
@@ -155,39 +170,39 @@ td button:first-of-type {
     color: #fff;
 }
 
+td button.btn-hapus,
 td button:last-of-type {
     background-color: #d9534f;
     color: #fff;
 }
 
 form p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 form label {
     display: block;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
     font-weight: 600;
-    color: #444;
+    color: #333;
 }
 
 form input,
 form select {
     width: 100%;
-    max-width: 400px;
-    padding: 0.55rem 0.7rem;
+    padding: 0.65rem 0.8rem;
     border: 1px solid #cdd4da;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 form button[type="submit"] {
     background-color: #1d5b8a;
     color: #fff;
     border: none;
-    padding: 0.6rem 1.5rem;
+    padding: 0.65rem 1.5rem;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
 }
 
@@ -199,10 +214,11 @@ form button[type="reset"] {
     background-color: #6c757d;
     color: #fff;
     border: none;
-    padding: 0.6rem 1.5rem;
+    padding: 0.65rem 1.5rem;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
+    margin-left: 0.3rem;
 }
 
 form button[type="reset"]:hover {
@@ -211,23 +227,13 @@ form button[type="reset"]:hover {
 
 footer {
     text-align: center;
-    padding: 1.25rem;
+    padding: 1.5rem;
     color: #7a8794;
     font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-    main section:nth-of-type(2) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    main section:nth-of-type(2) {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-toggle-label {
+    #nav-toggle-btn {
         display: block;
     }
 
@@ -235,6 +241,11 @@ footer {
         display: none;
         width: 100%;
         margin-top: 1rem;
+    }
+
+    header nav.nav-open {
+        display: flex;
+        flex-direction: column;
     }
 
     header nav ul {
@@ -245,7 +256,13 @@ footer {
         border-radius: 6px;
     }
 
-    #nav-toggle:checked ~ nav {
-        display: block;
+    main section:nth-of-type(2) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    main section:nth-of-type(2) {
+        grid-template-columns: 1fr;
     }
 }
